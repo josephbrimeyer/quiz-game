@@ -1,9 +1,9 @@
 let questionsDiv = document.getElementById("quiz-questions");
 let questionAskedDiv = document.getElementById("question-asked");
-let choice1Div = document.getElementById("choice1");
-let choice2Div = document.getElementById("choice2");
-let choice3Div = document.getElementById("choice3");
-let choice4Div = document.getElementById("choice4");
+let choice0Div = document.getElementById("0");
+let choice1Div = document.getElementById("1");
+let choice2Div = document.getElementById("2");
+let choice3Div = document.getElementById("3");
 
 // make a list of objects representing the quiz data
 // remember that when we want to organize data in JS we typically use objects
@@ -11,7 +11,7 @@ let choice4Div = document.getElementById("choice4");
 let quizQuestions = [
     {
         question: "Which of the following examples utilizes jQuery?",
-        choices: ["addEventListener", "getElementByID", "$(#id)", "let pTag=document.querySelectorAll"],
+        choices: ["addEventListener", "getElementByID", "$(#id)", "document.querySelectorAll"],
         answer: "$(#id)",
       },
       
@@ -21,9 +21,9 @@ let quizQuestions = [
         answer: "setItem"
       },
       {
-        question: "In JavaScript, an object is assigned by using?",
+        question: "In JavaScript, an array is assigned by using?",
         choices: ["parenthesis", "curly brackets", "brackets", "quotations"],
-        answer: "curly brackets"
+        answer: "brackets"
       },
       {
         question: "What programming language adds animation to a web page?",
@@ -33,10 +33,27 @@ let quizQuestions = [
     ];
     function quizToDisplay(){
       for (i = 0 ; i < quizQuestions.length; i++) { 
-        console.log(quizQuestions[i].question); 
+        console.log(quizQuestions[i].question);
+        
+        
+        choice0Div.addEventListener("click", quizToDisplay);
+
       }
 
     }
+//     var listEl = document.querySelector("#grocery-list");
+// var shoppingCartEl = document.querySelector("#shopping-cart");
+// var groceries = ["Bananas", "Apples", "Oranges", "Grapes", "Blueberries"];
+
+// listEl.addEventListener("click", function(event) {
+//   event.preventDefault();
+//   if(event.target.matches("button")) {
+//     var item = document.createElement("div");
+//     item.textContent = groceries[event.target.parentElement.id];
+//     shoppingCartEl.append(item);
+//   }
+// });
+    quizToDisplay()
 
     var timerEl = document.getElementById("countdown");
 
