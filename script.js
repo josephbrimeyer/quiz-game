@@ -1,14 +1,14 @@
 let questionsDiv = document.getElementById("quiz-questions");
 let questionAskedDiv = document.getElementById("question-asked");
-let choice0Div = document.getElementById("0");
-let choice1Div = document.getElementById("1");
-let choice2Div = document.getElementById("2");
-let choice3Div = document.getElementById("3");
+let choice0Div = document.getElementById("zero");
+let choice1Div = document.getElementById("one");
+let choice2Div = document.getElementById("two");
+let choice3Div = document.getElementById("three");
 
 // make a list of objects representing the quiz data
 // remember that when we want to organize data in JS we typically use objects
 
-let quizQuestions = [
+let quizQuestions =[
     {
         question: "Which of the following examples utilizes jQuery?",
         choices: ["addEventListener", "getElementByID", "$(#id)", "document.querySelectorAll"],
@@ -31,16 +31,60 @@ let quizQuestions = [
         answer: "JavaScript"
       }
     ];
+    
+    
     function quizToDisplay(){
       for (i = 0 ; i < quizQuestions.length; i++) { 
         console.log(quizQuestions[i].question);
         
-        
         choice0Div.addEventListener("click", quizToDisplay);
-
       }
+    }
+    let currentQuestion = 0;
+    function render () {
+      let questionData = quizQuestions[currentQuestion];
+      questionAskedDiv.textContent = (questionData.question);
+      for (let choice of questionData.choices)
+      $("#options").empty();
+     for (let choice of questionData.choices) {
+     $("#options").append($("<li>").text(choice))
+     }
+     currentQuestion += 1;
+     if (currentQuestion === questionData.length) {
+     currentQuestion = 0;
+     }
+    }
+    $("#submit").click(render)
+   render() 
+   quizToDisplay()
+
+    var timerEl = document.getElementById("countdown");
+
+    let secondSelect = 60;
+    function startQuiz() {
+        let secondSelect = 60;
+        
+        let timerInterval = setInterval(function() {
+        secondSelect--;
+        
+
+        timerEl.textContent = secondSelect + " seconds remaining.";
+  
+          if(secondSelect === 0) {
+            clearInterval(timerInterval);
+            alert("Your time is up!");
+            //here is where I reset the quiz.  
+      }
+  
+    }, 1000);
+      
 
     }
+    let startBtn = document.getElementById("start-button");
+    startBtn.addEventListener("click", startQuiz);
+ 
+        
+   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //     var listEl = document.querySelector("#grocery-list");
 // var shoppingCartEl = document.querySelector("#shopping-cart");
 // var groceries = ["Bananas", "Apples", "Oranges", "Grapes", "Blueberries"];
@@ -53,30 +97,7 @@ let quizQuestions = [
 //     shoppingCartEl.append(item);
 //   }
 // });
-    quizToDisplay()
-
-    var timerEl = document.getElementById("countdown");
-
-    function startQuiz() {
-        let secondSelect = 60;
-        
-        let timerInterval = setInterval(function() {
-        secondSelect--;
-        
-
-        timerEl.textContent = secondSelect + " ...";
-  
-          if(secondSelect === 0) {
-            clearInterval(timerInterval);
-            //here is where I reset the quiz.  
-      }
-  
-    }, 1000);
-      
-
-    }
-    let startBtn = document.getElementById("start-button");
-    startBtn.addEventListener("click", startQuiz);
+    
 
 // function sendMessage() {
 //   timeEl.textContent = " ";
@@ -90,22 +111,7 @@ let quizQuestions = [
 
 
 
-    // keep track of the question we are currently on
-    // let currentQuestion = 0;
-    // function render() {
-      // let questionData = quizQuestions[currentQuestion];
-      // $("#question").text(questionData.question);
-      // $("#options").empty();
-      // for (let choice of questionData.choices) {
-        // $("#options").append($("<li>").text(choice))
-      // }
-      // currentQuestion += 1;
-      // if (currentQuestion === questionData.length) {
-         //  currentQuestion = 0;
-      // }
-    // }
-    // $("#submit").click(render)
-  // render()
+    
     
 
     
