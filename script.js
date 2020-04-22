@@ -1,10 +1,8 @@
-let questionsDiv = document.getElementById("quiz-questions");
-let questionAskedDiv = document.getElementById("question-asked");
-let choice0Div = document.getElementById("zero");
-let choice1Div = document.getElementById("one");
-let choice2Div = document.getElementById("two");
-let choice3Div = document.getElementById("three");
+let startBtn = document.getElementById("start-button");
+let questionEl = document.getElementById("question");
+let choiceEl = document.getElementById("choices");
 let points = 0;
+let currentQuestion = 0;
 
 // make a list of objects representing the quiz data
 // remember that when we want to organize data in JS we typically use objects
@@ -34,6 +32,16 @@ let quizQuestions =[
       }
     ];
 
+//   1. Need to use the DOM to navigate the HTML document and create buttons and divs for text content.
+ //   2. Need to write a function to populate the buttons and divs with the quiz object values.
+ //   3. Need to add event listeners for each button in this function.
+ //   4. Need to evaluate if the button matches the correct or incorrect object value.
+ //   5. If false, need to deduct time from the counter.
+ //   6. If true, need to add to the score.
+ //   7. Final score is score + time remaining.
+ //   8. Need to write a function to take an input values with a prompt and convert this to local storage.
+ //   9. Need to create a list on the highscores page to track best performance.  
+      
     function quizButtons () {
       //<button type="button" class="btn btn-outline-success">Success</button>
       // <li class="btn btn-primary btn-sm" id="zero">Choice 0</li>
@@ -114,16 +122,7 @@ let quizQuestions =[
     let startBtn = document.getElementById("start-button");
     startBtn.addEventListener("click", startQuiz);
 
- //   1. Need to use the DOM to navigate the HTML document and create buttons and divs for text content.
- //   2. Need to write a function to populate the buttons and divs with the quiz object values.
- //   3. Need to add event listeners for each button in this function.
- //   4. Need to evaluate if the button matches the correct or incorrect object value.
- //   5. If false, need to deduct time from the counter.
- //   6. If true, need to add to the score.
- //   7. Final score is score + time remaining.
- //   8. Need to write a function to take an input values with a prompt and convert this to local storage.
- //   9. Need to create a list on the highscores page to track best performance.  
-        
+   
    // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //     var listEl = document.querySelector("#grocery-list");
 // var shoppingCartEl = document.querySelector("#shopping-cart");
