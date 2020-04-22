@@ -1,4 +1,3 @@
-let startBtn = document.getElementById("start-button");
 let questionEl = document.getElementById("question");
 let choiceEl = document.getElementById("choices");
 let points = 0;
