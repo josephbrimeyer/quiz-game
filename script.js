@@ -31,6 +31,17 @@ let quizQuestions =[
       }
     ];
 
+
+// choiceBtn.addEventListener("click", function() {
+//   let userChoice = choiceBtn.value;
+//   let choiceOption = document.getElementById("choices");
+//   if (userChoice === quizQuestions.answer) {
+//     choiceOption.textContent="You are Correct!";
+//   } else {
+//     choiceOption.textContent="Sorry, wrong answer."
+//   }
+//   });
+
 //   1. Need to use the DOM to navigate the HTML document and create buttons and divs for text content.
  //   2. Need to write a function to populate the buttons and divs with the quiz object values.
  //   3. Need to add event listeners for each button in this function.
