@@ -4,6 +4,7 @@ let choice0Div = document.getElementById("zero");
 let choice1Div = document.getElementById("one");
 let choice2Div = document.getElementById("two");
 let choice3Div = document.getElementById("three");
+let points = 0;
 
 // make a list of objects representing the quiz data
 // remember that when we want to organize data in JS we typically use objects
@@ -40,22 +41,22 @@ let quizQuestions =[
         choice0Div.addEventListener("click", quizToDisplay);
       }
     }
-    let currentQuestion = 0;
-    function render () {
-      let questionData = quizQuestions[currentQuestion];
-      questionAskedDiv.textContent = (questionData.question);
-      for (let choice of questionData.choices)
-      $("#options").empty();
-     for (let choice of questionData.choices) {
-     $("#options").append($("<li>").text(choice))
-     }
-     currentQuestion += 1;
-     if (currentQuestion === questionData.length) {
-     currentQuestion = 0;
-     }
-    }
-    $("#submit").click(render)
-   render() 
+  //   let currentQuestion = 0;
+  //   function render () {
+  //     let questionData = quizQuestions[currentQuestion];
+  //     questionAskedDiv.textContent = (questionData.question);
+  //     for (let choice of questionData.choices)
+  //     $("#options").empty();
+  //    for (let choice of questionData.choices) {
+  //    $("#options").append($("<li>").text(choice))
+  //    }
+  //    currentQuestion += 1;
+  //    if (currentQuestion === questionData.length) {
+  //    currentQuestion = 0;
+  //    }
+  //   }
+  //   $("#submit").click(render)
+  //  render() 
    quizToDisplay()
 
     var timerEl = document.getElementById("countdown");
@@ -109,9 +110,47 @@ let quizQuestions =[
 
 // }
 
+// example from Marlon to iterate through the array  //////
+
+// let globalTimer = 100
+// let currentQuestion = 0;
+
+// let questions = [
+//   {
+//     question: '1 + 1 = _',
+//     answer: '2'
+//   },
+//   {
+//     question: '2 + 1 = _',
+//     answer: '3'
+//   }, 
+//   {
+//     question: '2 + 4 = _',
+//     answer: '6'
+//   }
+// ]
+
+// function askQuestion(arrayOfQuestions, questionIndex) {
+//   let question = arrayOfQuestions[questionIndex].question
+//   let answer = arrayOfQuestions[questionIndex].answer
+
+//   let userInput = prompt(question)
+
+//   if (userInput != answer) {
+//     globalTimer -= 10
+//     alert("Wrong answer." + globalTimer + " seconds remaining.")
+//   } else {
+//     alert("Correct!")
+//     currentQuestion++
+//   }
+
+// }
 
 
-    
+// while(currentQuestion < questions.length) {
+//   askQuestion(questions, currentQuestion)
+// }
+ 
     
 
     
