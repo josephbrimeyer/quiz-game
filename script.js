@@ -9,6 +9,7 @@ let points = 0;
 // make a list of objects representing the quiz data
 // remember that when we want to organize data in JS we typically use objects
 
+//  Quiz questions that will be asked.
 let quizQuestions =[
     {
         question: "Which of the following examples utilizes jQuery?",
@@ -41,14 +42,35 @@ let quizQuestions =[
       //                   <li class="btn btn-primary btn-sm" id="three">Choice 3</li>
     }
     
+    function askQuestion(arrayOfQuestions, questionIndex) {
+      let question = arrayOfQuestions[questionIndex].question
+      let answer = arrayOfQuestions[questionIndex].answer
     
-    function quizToDisplay(){
-      for (i = 0 ; i < quizQuestions.length; i++) { 
-        console.log(quizQuestions[i].question);
-        
-        choice0Div.addEventListener("click", quizToDisplay);
+      let userInput = prompt(question)
+      //for (i = 0 ; i < quizQuestions.length; i++) { 
+      //     console.log(quizQuestions[i].question);
+          
+      //     choice0Div.addEventListener("click", quizToDisplay);
+      //   }
+      // }
+
+      if (userInput != answer) {
+        secondSelect -= 10
+        alert("Wrong answer." + secondSelect + " seconds remaining.")
+      } else {
+        alert("Correct!")
+        currentQuestion++
+        points ++
       }
+    
     }
+    
+    
+// while(currentQuestion < questions.length) {
+//   askQuestion(questions, currentQuestion)
+// }
+    // function quizToDisplay(){
+    //   
   //   let currentQuestion = 0;
   //   function render () {
   //     let questionData = quizQuestions[currentQuestion];
@@ -77,7 +99,7 @@ let quizQuestions =[
         secondSelect--;
         
 
-        timerEl.textContent = secondSelect + " seconds remaining.";
+        timerEl.textContent = secondSelect + " seconds";
   
           if(secondSelect === 0) {
             clearInterval(timerInterval);
@@ -91,7 +113,7 @@ let quizQuestions =[
     }
     let startBtn = document.getElementById("start-button");
     startBtn.addEventListener("click", startQuiz);
-    
+
  //   1. Need to use the DOM to navigate the HTML document and create buttons and divs for text content.
  //   2. Need to write a function to populate the buttons and divs with the quiz object values.
  //   3. Need to add event listeners for each button in this function.
@@ -127,46 +149,7 @@ let quizQuestions =[
 
 // }
 
-// example from Marlon to iterate through the array  //////
 
-// let globalTimer = 100
-// let currentQuestion = 0;
-
-// let questions = [
-//   {
-//     question: '1 + 1 = _',
-//     answer: '2'
-//   },
-//   {
-//     question: '2 + 1 = _',
-//     answer: '3'
-//   }, 
-//   {
-//     question: '2 + 4 = _',
-//     answer: '6'
-//   }
-// ]
-
-// function askQuestion(arrayOfQuestions, questionIndex) {
-//   let question = arrayOfQuestions[questionIndex].question
-//   let answer = arrayOfQuestions[questionIndex].answer
-
-//   let userInput = prompt(question)
-
-//   if (userInput != answer) {
-//     globalTimer -= 10
-//     alert("Wrong answer." + globalTimer + " seconds remaining.")
-//   } else {
-//     alert("Correct!")
-//     currentQuestion++
-//   }
-
-// }
-
-
-// while(currentQuestion < questions.length) {
-//   askQuestion(questions, currentQuestion)
-// }
  
     
 
