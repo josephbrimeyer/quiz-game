@@ -31,25 +31,32 @@
         <h1>Code Challenge</h1>
     </header>
     <div class="container">
-        <div class="timer">
-            <h3 id="countdown"></h3>
-            <h3 id="main"></h3>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title" id="quiz-questions">Welcome to JavaScript Code Challenge!</h5>
-                <p class="card-text" id="question-asked">Quiz placeholder.</p>
-                <li class="btn btn-primary btn-sm" id="zero">Choice 0</li>
-                <li class="btn btn-primary btn-sm" id="one">Choice 1</li>
-                <li class="btn btn-primary btn-sm" id="two">Choice 2</li>
-                <li class="btn btn-primary btn-sm" id="three">Choice 3</li>
+        <div class="row">
+            <div class="col">
+                <div class="timer">
+                    <h3 id="countdown"></h3>
+                    <h3 id="main"></h3>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" id="quiz-questions">Welcome to JavaScript Code Challenge!</h5>
+                        <p class="card-text" id="question-asked">Quiz placeholder.</p>
+                        <div class="quiz-start">
+                            <button type="button" class="btn btn-primary" id="start-button">Start Quiz!</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="col">
+                Score here
             </div>
         </div>
-        <div class="quiz-start">
-            <button type="button" class="btn btn-primary" id="start-button">Start Quiz!</button>
-        </div>
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

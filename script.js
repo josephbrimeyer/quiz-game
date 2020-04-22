@@ -32,6 +32,14 @@ let quizQuestions =[
         answer: "JavaScript"
       }
     ];
+
+    function quizButtons () {
+      //<button type="button" class="btn btn-outline-success">Success</button>
+      // <li class="btn btn-primary btn-sm" id="zero">Choice 0</li>
+      //                   <li class="btn btn-primary btn-sm" id="one">Choice 1</li>
+      //                   <li class="btn btn-primary btn-sm" id="two">Choice 2</li>
+      //                   <li class="btn btn-primary btn-sm" id="three">Choice 3</li>
+    }
     
     
     function quizToDisplay(){
@@ -57,7 +65,7 @@ let quizQuestions =[
   //   }
   //   $("#submit").click(render)
   //  render() 
-   quizToDisplay()
+   //quizToDisplay()
 
     var timerEl = document.getElementById("countdown");
 
