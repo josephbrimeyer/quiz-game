@@ -2,30 +2,36 @@ let questionEl = document.getElementById("question");
 let choiceEl = document.getElementById("choices");
 let points = 0;
 let currentQuestion = 0;
-let quizCountSpan; 
+let score = 0;
+//let quizCountSpan;
 //  Quiz questions that will be asked.
 let quizQuestions = [
   {
     question: "Which of the following examples utilizes jQuery?",
-    choices: ["addEventListener", "getElementByID", "$(#id)", "document.querySelectorAll"],
+    choices: [
+      "addEventListener",
+      "getElementByID",
+      "$(#id)",
+      "document.querySelectorAll",
+    ],
     answer: "$(#id)",
   },
 
   {
     question: "Which of the following terms will assign data?",
     choices: ["Assign Text", "setItem", "getItem", "JSON.stringify"],
-    answer: "setItem"
+    answer: "setItem",
   },
   {
     question: "In JavaScript, an array is assigned by using?",
     choices: ["parenthesis", "curly brackets", "brackets", "quotations"],
-    answer: "brackets"
+    answer: "brackets",
   },
   {
     question: "What programming language adds animation to a web page?",
     choices: ["HTML", "JavaScript", "CSS", "Bootstrap"],
-    answer: "JavaScript"
-  }
+    answer: "JavaScript",
+  },
 ];
 // ...................................................................................
 //   1. Need to use the DOM to navigate the HTML document and create buttons and divs for text content.
@@ -36,22 +42,22 @@ let quizQuestions = [
 //   6. If true, need to add to the score.
 //   7. Final score is score + time remaining.
 //   8. Need to write a function to take an input values with a prompt and convert this to local storage.
-//   9. Need to create a list on the highscores page to track best performance.  
-//  ............................................................................. 
-quizButtons()
+//   9. Need to create a list on the highscores page to track best performance.
+//  .............................................................................
+let quizCountSpan = document.querySelector("#choices");
 function quizButtons() {
   let quizBtn = document.createElement("BUTTON");
   quizBtn.innerHTML = "";
-  quizCountSpan.textContent = quizQuestions.choices.length;
-  for (let i = 0; i < quizQuestions.choices.lenght; i++) {
-  let btn = quizQuestions.choices[i];
-  //  quizCountSpan.textContent = quizQuestions.choices[i];
+  //quizCountSpan.textContent = quizQuestion.choices.length;
+  for (let i = 0; i < quizQuestions.choices.length; i++) {
+    let btn = quizQuestions.choices[i];
+    //  quizCountSpan.textContent = quizQuestions.choices[i];
   }
   let button = document.createElement("button");
-     button.textContent = btn;
-     quizBtn.appendChild(button);
-     console.log(i);
-  }
+  button.textContent = btn;
+  quizBtn.appendChild(button);
+  console.log(i);
+}
 //.............................................................
 //      var todoInput = document.querySelector("#todo-text");
 // var todoForm = document.querySelector("#todo-form");
@@ -75,7 +81,7 @@ function quizButtons() {
 //     li.textContent = todo;
 //     todoList.appendChild(li);
 //   }
-// } 
+// }
 //...........................................................................
 //<button type="button" class="btn btn-outline-success">Success</button>
 // <li class="btn btn-primary btn-sm" id="zero">Choice 0</li>
@@ -95,7 +101,7 @@ function quizButtons() {
 //   }
 //   });
 //  ..............................................................................
-// todo example from class...... 
+// todo example from class......
 //     function renderTodos() {
 //   // Clear todoList element and update todoCountSpan
 //   todoList.innerHTML = "";
@@ -112,25 +118,25 @@ function quizButtons() {
 // }
 // ............................................................................
 function askQuestion(arrayOfQuestions, questionIndex) {
-  let question = arrayOfQuestions[questionIndex].question
-  let answer = arrayOfQuestions[questionIndex].answer
+  let question = arrayOfQuestions[questionIndex].question;
+  let answer = arrayOfQuestions[questionIndex].answer;
 
-  let userInput = prompt(question)
-  //for (i = 0 ; i < quizQuestions.length; i++) { 
+  let userInput = prompt(question);
+  //for (i = 0 ; i < quizQuestions.length; i++) {
   //     console.log(quizQuestions[i].question);
   //     choice0Div.addEventListener("click", quizToDisplay);
   //   }
   // }
   if (userInput != answer) {
-    secondSelect -= 10
-    alert("Wrong answer." + secondSelect + " seconds remaining.")
+    secondSelect -= 10;
+    alert("Wrong answer." + secondSelect + " seconds remaining.");
   } else {
-    alert("Correct!")
-    currentQuestion++
-    points++
+    alert("Correct!");
+    currentQuestion++;
+    points++;
   }
 }
-// ............................................................................   
+// ............................................................................
 // while(currentQuestion < questions.length) {
 //   askQuestion(questions, currentQuestion)
 // }
@@ -150,7 +156,7 @@ function askQuestion(arrayOfQuestions, questionIndex) {
 //    }
 //   }
 //   $("#submit").click(render)
-//  render() 
+//  render()
 //quizToDisplay()
 var timerEl = document.getElementById("countdown");
 
@@ -161,20 +167,18 @@ function startQuiz() {
   let timerInterval = setInterval(function () {
     secondSelect--;
 
-
     timerEl.textContent = secondSelect + " seconds";
 
     if (secondSelect === 0) {
       clearInterval(timerInterval);
       alert("Your time is up!");
-      //here is where I reset the quiz.  
+      //here is where I reset the quiz.
     }
-
   }, 1000);
-
 }
 let startBtn = document.getElementById("start-button");
 startBtn.addEventListener("click", startQuiz);
+quizButtons();
 // ...............................................................................
 //     var listEl = document.querySelector("#grocery-list");
 // var shoppingCartEl = document.querySelector("#shopping-cart");
@@ -189,7 +193,7 @@ startBtn.addEventListener("click", startQuiz);
 //   }
 // });
 //................................................................................
-    // function sendMessage() {
+// function sendMessage() {
 //   timeEl.textContent = " ";
 
 //   var imgEl = document.createElement("img");
@@ -197,8 +201,3 @@ startBtn.addEventListener("click", startQuiz);
 //   imgEl.setAttribute("src", "images/image_1.jpg");
 //   mainEl.appendChild(imgEl);
 // }
-
-
-
-
-
